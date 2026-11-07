@@ -33,9 +33,9 @@ npm install
 npm run dev
 ```
 
-Then open the URL Vite prints (by default http://localhost:5173).
+Then open the URL Vite prints (by default http://localhost:5173/ShoppyCart/).
 
-Other scripts: `npm run build` (outputs `dist/`, built for the `/ShoppyCart/` path used by GitHub Pages), `npm run preview`.
+Other scripts: `npm run build` (outputs `dist/`), `npm run preview`. The app is served under `/ShoppyCart/` (see `vite.config.js`) to match its GitHub Pages URL.
 
 ## Project structure
 
