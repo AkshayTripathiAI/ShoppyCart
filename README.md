@@ -2,6 +2,8 @@
 
 A small React storefront with a shopping cart, built to practise sharing state with the Context API and `useReducer`.
 
+**Live demo:** https://akshaytripathiai.github.io/ShoppyCart/
+
 Built as a practice project while learning React.
 
 ![Landing page](./screenshots/LandingPage.png)
