@@ -1,45 +1,24 @@
-import { useRef } from 'react';
+import { useContext, useRef } from "react";
 
-import CartModal from './CartModal.jsx';
+import CartModal from "./CartModal.jsx";
+import { CartContext } from "../store/shopping-cart-context.jsx";
+import { cartTotals } from "../format";
 
-import { CartContext } from '../store/shopping-cart-context.jsx';
-import { useContext } from 'react';
 export default function Header() {
   const modal = useRef();
-  const {items} = useContext(CartContext);
-
-
-  const cartQuantity = items.length;
-
-  function handleOpenCartClick() {
-    modal.current.open();
-  }
-
-  let modalActions = <button>Close</button>;
-
-  if (cartQuantity > 0) {
-    modalActions = (
-      <>
-        <button>Close</button>
-        <button>Checkout</button>
-      </>
-    );
-  }
+  const { items } = useContext(CartContext);
+  const { count } = cartTotals(items);
 
   return (
     <>
-      <CartModal
-        ref={modal}
-        title="Your Cart"
-        actions={modalActions}
-      />
+      <CartModal ref={modal} />
       <header id="main-header">
         <div id="main-title">
-          <img src="logo.png" alt="Elegant model" />
-          <h1>Elegant Context</h1>
+          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="ShoppyCart logo" />
+          <h1>ShoppyCart</h1>
         </div>
         <p>
-          <button onClick={handleOpenCartClick}>Cart ({cartQuantity})</button>
+          <button onClick={() => modal.current.open()}>Cart ({count})</button>
         </p>
       </header>
     </>
